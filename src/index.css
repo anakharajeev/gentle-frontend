@@ -1,0 +1,398 @@
+@import "tailwindcss";
+
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@source "./src";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  input, select{
+    font-size: .6rem;
+    height: 1.4rem;
+    border: 1px solid #eaeef8;
+    color: #08203d;
+  }
+  textarea{
+    padding-top: .25rem;
+    font-size: .6rem;
+    border: 1px solid #eaeef8;
+    color: #08203d;
+  }
+  input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline: 0;
+  }
+  input::placeholder{
+    color: #8291a7;
+  }
+  .table-wrapper {
+    border: 1px solid #d9e0f2;
+    border-radius: .25rem;
+    overflow: hidden; 
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td{
+    padding: .15rem .3rem;
+    border: 1px solid #d9e0f2;
+    text-align: left;
+    color: #08203d;
+  }
+  th{
+    font-size: .6rem;
+    font-weight: 500;
+    background-color: #eaeef8;
+  }
+  td{
+    font-size: .65rem;
+  }
+  thead th {
+    border-top: none;
+  }
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  tr td:first-child,
+  tr th:first-child {
+    border-left: none;
+  }
+  tr td:last-child,
+  tr th:last-child {
+    border-right: none;
+  }
+  td span{
+    font-size: .58rem;
+    padding: .15rem .3rem;
+    border-radius: .2rem;
+  }
+  .table-nav{
+    height: 1.2rem;
+    width: 1.2rem;
+    display: flex;
+    padding: 0;
+    font-size: .65rem;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d9e0f2;
+    color: #08203d;
+    transition: 1s;
+    cursor: pointer;
+  }
+  .table-nav:hover{
+    border: 1px solid #09203d;
+    background-color: #09203d;
+    color: white;
+    transition: 1s;
+  }
+  .table-nav:disabled, .table-nav:disabled:hover{
+    cursor: not-allowed;
+    color: #08203d;
+    background-color: #eaeef8;
+    border: 1px solid #d9e0f2;
+    opacity: 40%;
+  }
+  .common-btn{
+    border-radius: 0.25rem;
+    height: 1.4rem;
+    font-size: .6rem;
+    padding: 0rem .5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .1rem;
+    cursor: pointer;
+    transition: 1s;
+  }
+  .success-btn{
+    background-color: #00ad93;
+    color: white;
+  }
+  .btn-sm{
+    height: 1.3rem;
+    width: 1.3rem;
+    font-size: .55rem;
+  }
+  .btn-md{
+    height: 1.45rem;
+    font-size: .65rem;
+  }
+  .success-btn:hover{
+    background-color: #008f7f;
+    transition: 1s;
+  }
+  .disabled-btn{
+    background-color: #7c8aa2;
+    color: white;
+  }
+  .delete-btn{
+    background-color: #ffe5e5;
+    color: #e63946;
+    padding: 0;
+    min-width: 1.45rem;
+    transition: 1s;
+  }
+  .delete-btn:hover{
+    background-color: #e63946;
+    color: white;
+    transition: 1s;
+  }
+  .danger-btn{
+    background-color: #dc3140;
+    color: #ffffff;
+    transition: 1s;
+  }
+  .danger-btn:hover{
+    background-color: #c21d2b;
+    transition: 1s;
+  }
+  .secondary-btn{
+    background-color: #eaeef8;
+    color: #08203d;
+  }
+  .secondary-btn:hover{
+    background-color: #09203d;
+    color: white;
+    transition: 1s;
+  }
+  .primary-btn{
+    background-color: #09203d;
+    color: white;
+  }
+  .cancel-btn{
+    background-color: #eaeef8;
+    color: #08203d;
+    transition: 1s;
+  }
+  .cancel-btn:hover{
+    background-color: #d0d7e8;
+    color: #08203d;
+    transition: 1s
+  }
+
+
+  /* login page */
+
+  .login-page {
+      width: 100%;
+      height: 100vh;
+      background-image: url(assets/donation-bg.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .login-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 30%);
+      border-radius: 0.625rem;
+      padding: 1.8rem 1.2rem;
+      width: 18rem;
+      height: auto;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 4rem;
+      z-index: 1;
+  }
+
+  .login-box span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      box-sizing: border-box;
+      z-index: -1;
+  }
+
+  .login-box span:nth-child(3) {
+      transform: rotate(180deg);
+  }
+
+  .login-box span:nth-child(4) {
+      transform: rotate(180deg);
+  }
+
+  .login-box span:nth-child(1):before, .login-box span:nth-child(3)::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1.3px;
+      background: linear-gradient(to left, rgba(255, 255, 255, 100%), rgba(255, 255, 255, 40%));
+      animation: animate 4s linear infinite;
+  }
+
+  .login-box span:nth-child(2):before, .login-box span:nth-child(4)::before {
+      content: '';
+      position: absolute;
+      width: 1.2px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 100%), rgba(255, 255, 255, 40%));
+      animation: animate1 4s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    50.1% {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+  }
+
+  @keyframes animate1 {
+    0% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    50.1% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+  }
+
+  .login-box input {
+    background-color: rgb(255 255 255 / 20%);
+    border: 1px solid #a3b0bd;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.5rem;
+    color: #ffffff;
+  }
+  .login-box input::placeholder {
+    color: rgb(255 255 255 / 80%);
+  }
+  .show-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c6cfd8;
+    cursor: pointer;
+    transition: 1s;
+  }
+  .show-btn:hover{
+    color: #ffffff;
+    transition: 1s;
+  }
+}
+
+/* ---------------------------
+   COMMON ANIMATIONS (GLOBAL)
+---------------------------- */
+
+/* Fade In + Scale */
+.animate-fadeInScale {
+    animation: fadeInScale 0.35s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+
+/* Soft Fade In */
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/* Slide From Bottom */
+.animate-slideUp {
+    animation: slideUp 0.45s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+/* Modal Backdrop Fade */
+.animate-fadeBackdrop {
+    animation: fadeBackdrop 0.3s ease-out forwards;
+}
+
+@keyframes fadeBackdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/* Modal Pop-in Animation */
+.animate-popIn {
+    animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+}

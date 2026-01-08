@@ -1,0 +1,61 @@
+# ============================================
+# Python / Django
+# ============================================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+
+# Django specific
+/media/
+staticfiles/
+static/
+local_settings.py
+
+# Virtual environment
+env/
+venv/
+ENV/
+
+# Environment variables
+*.env
+.env
+.env.*
+
+# ============================================
+# Node / React / Vite / Tailwind
+# ============================================
+node_modules/
+dist/
+.pnpm-store/
+.pnp.*
+*.tsbuildinfo
+
+# Tailwind
+*.css.map
+
+# Builds
+build/
+*.zip
+
+# ============================================
+# macOS
+# ============================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ============================================
+# VS Code
+# ============================================
+.vscode/
+.history/
+
+# ============================================
+# Logs
+# ============================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
