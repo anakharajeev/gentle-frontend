@@ -47,7 +47,7 @@ export default function Header() {
             </button>
 
             {open && (
-              <div className="absolute right-[-1rem] mt-3 w-26  bg-[#08203d] rounded-[0_0_0.25rem_0.25rem] shadow">
+              <div className="absolute right-[-1rem] top-[2.15rem] w-26  bg-[#08203d] rounded-[0_0_0.25rem_0.25rem] shadow">
                 <button
                   onClick={logout}
                   className="flex items-center gap-1 w-full text-left text-[0.85rem] px-3 py-1.5 text-[#79879e] hover:text-[#ffffff] transition-[0.5s]"
