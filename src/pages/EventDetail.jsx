@@ -173,26 +173,26 @@ const handleDonationSubmit = async () => {
 
   return (
     <>
-      <div className="p-3 animate-fadeInScale">
+      <div className="p-4 animate-fadeInScale">
         {toast && (
-          <div className="fixed top-5 z-[100] right-5 bg-[#e1f6f3] text-[#00ad93] text-[0.65rem] border border-solid border-[#ccf2ec] px-2 py-1 rounded shadow animate-fadeInScale">
+          <div className="fixed top-5 z-[100] right-5 bg-[#e1f6f3] text-[#00ad93] text-[0.85rem] border border-solid border-[#ccf2ec] px-2 py-1 rounded shadow animate-fadeInScale">
             {toast}
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-          <div className="lg:col-span-2 bg-white p-2 rounded shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2 bg-white p-4 rounded shadow">
             
 
             {event.image && (
-              <img src={event.image} alt={event.title} className="w-full h-64 object-cover object-top rounded mb-2.5" />
+              <img src={event.image} alt={event.title} className="w-full h-100 object-cover object-top rounded mb-2.5" />
             )}
-            <h1 className="text-[0.9rem] uppercase font-bold text-[#09203d] mb-1">{event.title}</h1>
-            <p className="text-[0.65rem] text-gray-500 flex align-middle gap-1.5">
-              <span className="flex align-middle gap-0.5"><Calendar size={12} />{event.date}</span>
-              <span className="flex align-middle gap-0.5"><MapPin size={12} />{event.location}</span>
+            <h1 className="text-[1.25rem] uppercase font-bold text-[#09203d] mb-1">{event.title}</h1>
+            <p className="text-[0.85rem] text-gray-500 flex align-middle gap-1.5">
+              <span className="flex align-middle gap-0.5"><Calendar size={16} />{event.date}</span>
+              <span className="flex align-middle gap-0.5"><MapPin size={16} />{event.location}</span>
             </p>
-            <p className="mt-2.5 text-gray-700 text-[0.7rem]">{event.description}</p>
+            <p className="mt-2.5 text-gray-700 text-[0.95rem]">{event.description}</p>
 
             {(role === "admin" || role === "hr") && (
               <div className="flex gap-1 mt-3">
@@ -215,33 +215,33 @@ const handleDonationSubmit = async () => {
 
             <hr className="my-3 border-t-[#ebebeb]" />
 
-            <h3 className="text-[0.85] font-semibold text-[#09203d] mb-1.5">Donations</h3>
+            <h3 className="text-[1.25rem] font-semibold text-[#09203d] mb-1">Donations</h3>
 
             {event.total_donations > 0 ? (
-                <p className="text-gray-600 text-[0.7rem] mb-2">
-                  Total Donations Received: <span className="text-[#00ad93] text-[0.8rem] font-semibold italic">₹{event.total_donations}</span>
+                <p className="text-gray-600 text-[0.95rem] mb-2">
+                  Total Donations Received: <span className="text-[#00ad93] text-[1.2rem] font-semibold italic">₹{event.total_donations}</span>
                 </p>
               ) : (
-                <p className="text-gray-600 text-[0.7rem] mb-2">No donations yet.</p>
+                <p className="text-gray-600 text-[0.95rem] mb-2">No donations yet.</p>
               )}
           </div>
 
-          <aside className="bg-white p-3 h-fit rounded shadow">
-            <h3 className="text-[0.9rem] uppercase font-bold text-[#09203d] mb-2">Donate Now</h3>
-            <p className="text-gray-700 text-[0.75rem]">Support this event</p>
+          <aside className="bg-white p-4 h-fit rounded shadow">
+            <h3 className="text-[1.25rem] uppercase font-bold text-[#09203d] mb-2">Donate Now</h3>
+            <p className="text-gray-700 text-[0.95rem]">Support this event</p>
 
-            <div className="mt-2">
-              <span className="text-[0.65rem] bg-gray-100 px-3 py-1 rounded inline-block">
+            <div className="mt-3">
+              <span className="text-[0.95rem] bg-gray-100 px-3 py-1 rounded inline-block">
                 Total donations received: <span className="pl-1 font-semibold">₹{totalDonations}</span>
               </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 mt-3">
+            <div className="grid grid-cols-3 gap-2 mt-4">
               {presets.map((p) => (
                 <button
                   key={p}
                   onClick={() => onSelectPreset(p)}
-                  className={`px-1.5 py-1 text-[0.7rem] rounded border text-[#08203d] border-solid border-[#eaeef8] hover:bg-[#09203d] hover:text-white cursor-pointer ${
+                  className={`px-1.5 py-1 text-[0.95rem] rounded border text-[#08203d] border-solid border-[#eaeef8] hover:bg-[#09203d] hover:text-white cursor-pointer ${
                     preset === p ? "bg-[#09203d] text-white" : "bg-gray-50"
                   }`}
                 >
@@ -250,10 +250,10 @@ const handleDonationSubmit = async () => {
               ))}
             </div>
 
-            <div className="mt-3">
-              <label className="block text-gray-700 text-[0.65rem] mb-1">Or enter custom amount</label>
+            <div className="mt-4">
+              <label className="block text-gray-700 text-[0.85rem] mb-1">Or enter custom amount</label>
               <input
-                className="h-[1.6rem] text-[0.75rem] px-2 border rounded"
+                className="px-2 border rounded"
                 type="number"
                 value={amount}
                 onChange={(e) => {
@@ -264,7 +264,7 @@ const handleDonationSubmit = async () => {
             </div>
 
             <button
-              className={`mt-4 w-full px-2 h-[1.6rem] text-[0.75rem] rounded ${
+              className={`mt-4 w-full px-2 h-[2rem] text-[1rem] rounded ${
                 isEventEnded
                   ? "common-btn disabled-btn btn-md cursor-not-allowed"
                   : "common-btn success-btn btn-md"
@@ -272,7 +272,7 @@ const handleDonationSubmit = async () => {
               disabled={isEventEnded}
               onClick={() => !isEventEnded && setPaymentModalOpen(true)}
             >
-              {isEventEnded ? "Donations Closed" : "Donate"}
+              {isEventEnded ? "Donations Closed" : "Donate Now"}
             </button>
 
           </aside>
@@ -280,10 +280,10 @@ const handleDonationSubmit = async () => {
       </div>
       {editModalOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white p-3 rounded-lg shadow-lg max-w-sm w-full animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] mb-3">Edit Event</h2>
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-md w-full animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] mb-3">Edit Event</h2>
 
-            <form onSubmit={handleEdit} className="flex flex-col gap-1">
+            <form onSubmit={handleEdit} className="flex flex-col gap-1.5">
               <input
                 type="text"
                 value={formData.title}
@@ -296,6 +296,7 @@ const handleDonationSubmit = async () => {
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 className="px-2 border rounded"
+                rows={3}
                 required
               />
 
@@ -342,9 +343,9 @@ const handleDonationSubmit = async () => {
 
       {deleteModalOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white py-4 px-3 rounded shadow w-60 animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] text-center mb-2">Confirm Delete</h2>
-            <p className="text-gray-600 text-[0.7rem] text-center">Are you sure you want to delete this event?</p>
+          <div className="bg-white py-5 px-4 rounded shadow w-80 animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] text-center mb-2">Confirm Delete</h2>
+            <p className="text-gray-600 text-[0.9rem] text-center">Are you sure you want to delete this event?</p>
 
             <div className="flex justify-center gap-1 mt-4">
               <button
@@ -367,12 +368,12 @@ const handleDonationSubmit = async () => {
 
       {paymentModalOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white py-4 px-3 rounded shadow w-60 animate-popIn">
-            <h3 className="text-base font-bold text-[#09203d] text-center mb-2">Confirm Donation</h3>
+          <div className="bg-white py-5 px-4 rounded shadow w-70 animate-popIn">
+            <h3 className="text-[1.25rem] font-bold text-[#09203d] text-center mb-3">Confirm Donation</h3>
 
             <div className="flex justify-center gap-1 mb-4">
-              <span className="text-gray-700 text-[0.7rem]">Amount:</span>
-              <span className="text-[#00ad93] text-[0.78rem] font-semibold italic">₹{amount}</span>
+              <span className="text-gray-700 text-[0.95rem]">Amount:</span>
+              <span className="text-[#00ad93] text-[1rem] font-semibold italic">₹{amount}</span>
             </div>
 
             <div className="flex justify-center gap-1 mt-4">
@@ -402,9 +403,9 @@ const handleDonationSubmit = async () => {
 
       {successModalOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white py-4 px-3 rounded shadow w-60 animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] text-center mb-2">Donation Successful 🎉</h2>
-            <p className="text-gray-700 text-center text-[0.75rem] mb-4">Thank you for your support!</p>
+          <div className="bg-white py-5 px-4 rounded shadow w-70 animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] text-center mb-3">Donation Successful 🎉</h2>
+            <p className="text-gray-700 text-center text-[0.9rem] mb-4">Thank you for your support!</p>
             <button
               className="mx-auto px-2 common-btn cancel-btn"
               onClick={() => setSuccessModalOpen(false)}

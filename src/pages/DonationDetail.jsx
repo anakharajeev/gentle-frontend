@@ -50,19 +50,20 @@ export default function DonationDetail() {
   const totalPages = pageSize === "all" ? 1 : Math.ceil(total / parseInt(pageSize));
 
   return (
-    <div className="p-3">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-1 gap-2">
-        <h1 className="text-[0.85rem] uppercase font-bold text-[#09203d]">{eventName}</h1>
+    <div className="px-4 py-2.5">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-2">
+        <h1 className="text-lg uppercase font-bold text-[#09203d]">{eventName}</h1>
+        {/* Search & Page Size */}
         <div className="flex items-center gap-1">
-          <div className="relative w-50 flex items-center">
+          <div className="relative w-85 flex items-center">
               <Search
-                size={12}
-                className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[#8291a7]"
+                size={17}
+                className="absolute left-2 top-1/2 -translate-y-1/2 text-[#8291a7]"
               />
             <input
               type="text"
               placeholder="Search by donor name or email..."
-              className="w-full rounded pr-3 py-1 pl-6 border"
+              className="w-full rounded pr-3 py-1 pl-7 border"
               value={search}
               onChange={(e) => { setPage(1); setSearch(e.target.value); }}
             />
@@ -117,7 +118,7 @@ export default function DonationDetail() {
       {/* Pagination */}
       {pageSize !== "all" && donations.length > 0 && (
         <div className="flex gap-2 mt-1.5 items-center justify-between">
-          <span className="text-[0.6rem] text-[#687e9e]">
+          <span className="text-[0.85rem] text-[#687e9e]">
             Page {page} of {totalPages}
           </span>
           <div className="flex gap-1">
@@ -126,14 +127,14 @@ export default function DonationDetail() {
               onClick={() => setPage(page - 1)}
               className="table-nav rounded"
             >
-              <ChevronLeft size={13} />
+              <ChevronLeft size={18} />
             </button>
             <button
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
               className="table-nav rounded"
             >
-              <ChevronRight size={13} />
+              <ChevronRight size={18} />
             </button>
           </div>
         </div>

@@ -181,27 +181,27 @@ export default function EventList() {
 
   return (
     <>
-      <div className="p-3 animate-fadeInScale">
+      <div className="px-4 py-2.5 animate-fadeInScale">
         {toast && (
-          <div className="fixed top-5 z-[100] right-5 bg-[#e1f6f3] text-[#00ad93] text-[0.65rem] border border-solid border-[#ccf2ec] px-2 py-1 rounded shadow animate-fadeInScale">
+          <div className="fixed top-5 z-[100] right-5 bg-[#e1f6f3] text-[#00ad93] text-[0.85rem] border border-solid border-[#ccf2ec] px-2 py-1 rounded shadow animate-fadeInScale">
             {toast}
           </div>
         )}
 
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-2">
-          <h1 className="text-base uppercase font-bold text-[#09203d]">Events</h1>
+          <h1 className="text-xl uppercase font-bold text-[#09203d]">Events</h1>
           <div className="flex items-center gap-1">
-            <div className="relative w-50 flex items-center">
+            <div className="relative w-65 flex items-center">
               <Search
-                size={12}
-                className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[#8291a7]"
+                size={17}
+                className="absolute left-2 top-1/2 -translate-y-1/2 text-[#8291a7]"
               />
               <input
                 type="text"
                 placeholder="Search events..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full rounded pr-3 py-1 pl-6 border"
+                className="w-full rounded pr-3 py-1 pl-7 border"
               />
             </div>
             {(role === "admin" || role === "hr") && (
@@ -218,34 +218,34 @@ export default function EventList() {
                 }}
                 className="common-btn success-btn animate-slideUp"
               >
-                <Plus size={12} />Add Event
+                <Plus size={16} />Add Event
               </button>
             )}
           </div>
         </div>
         {events.length === 0 ? (
           <div className="flex flex-col items-center py-20">
-            <img src={empty} alt="No events" className="w-70 mb-4" />
-            <p className="text-center text-[#09203d] text-base">
+            <img src={empty} alt="No events" className="w-120 mb-4" />
+            <p className="text-center text-[#09203d] text-[1.5rem]">
               No events found.
             </p>
           </div>
         ) : paginated.length === 0 ? (
           <div className="flex flex-col items-center py-20">
-            <img src={empty} alt="No match" className="w-70 mb-4" />
-            <p className="text-center text-[#09203d] text-base">
+            <img src={empty} alt="No match" className="w-120 mb-4" />
+            <p className="text-center text-[#09203d] text-[1.5rem]">
               No matching events.
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {paginated.map((event) => (
               <div
                 key={event.id}
-                className="bg-white rounded shadow p-2 animate-fadeInScale"
+                className="bg-white rounded shadow p-3 animate-fadeInScale"
               >
                 <div
-                  className="relative h-35 w-full rounded mb-2 overflow-hidden cursor-pointer"
+                  className="relative h-53 w-full rounded mb-2 overflow-hidden cursor-pointer"
                   onClick={() => navigate(`/events/${event.id}`)}
                 >
                   <img
@@ -261,17 +261,17 @@ export default function EventList() {
                       }}
                       className="absolute top-1 right-1 bg-white cursor-pointer rounded-full p-1.5 shadow hover:bg-[#09203d] hover:text-white transition"
                     >
-                      <Edit size={12} />
+                      <Edit size={16} />
                     </button>
                   )}
                 </div>
 
-                <h2 className="text-[0.9rem] mb-0.5 font-bold text-[#09203d] cursor-pointer" onClick={() => navigate(`/events/${event.id}`)}>{event.title}</h2>
-                <p className="text-[0.6rem] text-gray-500 flex align-middle gap-1.5">
-                  <span className="flex align-middle gap-0.5"><Calendar size={12} /> {event.date}</span>
-                  <span className="flex align-middle gap-0.5"><MapPin size={12} /> {event.location}</span>
+                <h2 className="text-[1.1rem] mb-0.5 font-bold text-[#09203d] cursor-pointer" onClick={() => navigate(`/events/${event.id}`)}>{event.title}</h2>
+                <p className="text-[0.8rem] text-gray-500 flex align-middle gap-1.5">
+                  <span className="flex align-middle gap-0.5"><Calendar size={16} /> {event.date}</span>
+                  <span className="flex align-middle gap-0.5"><MapPin size={16} /> {event.location}</span>
                 </p>
-                <p className="mt-2 mb-2.5 text-gray-700 line-clamp-2 text-[0.65rem]">
+                <p className="mt-2 mb-2.5 text-gray-700 line-clamp-2 text-[0.85rem]">
                   {event.description}
                 </p>
               
@@ -296,7 +296,7 @@ export default function EventList() {
                       onClick={() => setDeleteEventId(event.id)}
                       className="common-btn delete-btn btn-md animate-slideUp"
                     >
-                      <Trash2 size={13} />
+                      <Trash2 size={16} />
                     </button>
                   )}
                 </div>
@@ -323,9 +323,9 @@ export default function EventList() {
 
       {deleteEventId && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white py-4 px-3 rounded shadow w-60 animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] text-center mb-2">Confirm Delete</h2>
-            <p className="text-gray-600 text-[0.7rem] text-center">Are you sure you want to delete this event?</p>
+          <div className="bg-white py-5 px-4 rounded shadow w-80 animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] text-center mb-2">Confirm Delete</h2>
+            <p className="text-gray-600 text-[0.9rem] text-center">Are you sure you want to delete this event?</p>
 
             <div className="flex justify-center gap-1 mt-4">
               <button
@@ -348,10 +348,10 @@ export default function EventList() {
 
       {showAddModal && (
         <div className="inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center fixed h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white p-3 rounded-lg shadow-lg max-w-sm w-full animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] mb-3">Add Event</h2>
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-md w-full animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] mb-3">Add Event</h2>
 
-            <form onSubmit={handleCreate} className="flex flex-col gap-1">
+            <form onSubmit={handleCreate} className="flex flex-col gap-1.5">
               <input
                 type="text"
                 name="title"
@@ -423,10 +423,10 @@ export default function EventList() {
 
       {editEvent && (
         <div className="inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center fixed h-screen z-[100] animate-fadeBackdrop">
-          <div className="bg-white p-3 rounded-lg shadow-lg max-w-sm w-full animate-popIn">
-            <h2 className="text-base font-bold text-[#09203d] mb-3">Edit Event</h2>
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-md w-full animate-popIn">
+            <h2 className="text-[1.25rem] font-bold text-[#09203d] mb-3">Edit Event</h2>
 
-            <form onSubmit={handleEdit} className="flex flex-col gap-1">
+            <form onSubmit={handleEdit} className="flex flex-col gap-1.5">
               <input
                 type="text"
                 name="title"
@@ -441,6 +441,7 @@ export default function EventList() {
                 name="description"
                 placeholder="Description"
                 value={formData.description}
+                rows={3}
                 onChange={handleChange}
                 className="px-2 border rounded"
                 required
