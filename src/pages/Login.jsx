@@ -71,18 +71,18 @@ export default function Login() {
         <span></span>
 
         <div className="login-content">
-          <img src={logo} alt="logo" className="h-[2.3rem] mb-4 mx-auto" />
+          <img src={logo} alt="logo" className="h-[3rem] mb-4 mx-auto" />
 
-          <h1 className="text-white text-[1.2rem] font-bold mb-1">Sign in</h1>
-          <h6 className="text-white text-[0.62rem] font-normal mb-2">Enter the Username and Password.</h6>
+          <h1 className="text-white text-[1.8rem] font-bold mb-1">Sign in</h1>
+          <h6 className="text-white text-[0.87rem] font-normal mb-3">Enter the Username and Password.</h6>
 
           <div className="error-message">
-            {error && <p className="text-red-500 text-[0.6rem] mb-2">{error}</p>}
+            {error && <p className="text-red-500 text-[0.85rem] mb-2.5">{error}</p>}
           </div>
 
           <form onSubmit={handleSubmit} className="pt-2" noValidate>
             <div className="mb-2 flex flex-col gap-0.5">
-              <label htmlFor="username" className="text-[0.55rem] text-white font-medium">User Name</label>
+              <label htmlFor="username" className="text-[0.8rem] text-white font-medium">User Name</label>
               <input
                 type="text"
                 className="form-control w-full rounded"
@@ -94,7 +94,7 @@ export default function Login() {
             </div>
 
             <div className="mb-4 flex flex-col gap-0.5">
-              <label htmlFor="password" className="text-[0.55rem] text-white font-medium">Password</label>
+              <label htmlFor="password" className="text-[0.8rem] text-white font-medium">Password</label>
               <div className="relative">
                 <input
                   type={show ? "text" : "password"}
@@ -109,7 +109,7 @@ export default function Login() {
                   type="button"
                   onClick={() => setShow(!show)}
                 >
-                  {show ? <EyeOff size={12} /> : <Eye size={12} />}
+                  {show ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
               </div>
             </div>

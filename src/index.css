@@ -196,13 +196,13 @@
   .login-box {
       background-color: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 30%);
-      border-radius: 0.625rem;
-      padding: 1.8rem 1.2rem;
-      width: 18rem;
+      border-radius: .625rem;
+      width: 24rem;
       height: auto;
+      margin-bottom: 4rem;
+      padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
-      margin-bottom: 4rem;
       z-index: 1;
   }
 
@@ -293,6 +293,8 @@
     display: flex;
     align-items: center;
     padding: 0rem 0.5rem;
+    height: 2rem;
+    font-size: .85rem;
     color: #ffffff;
   }
   .login-box input::placeholder {
@@ -302,8 +304,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 1.5rem;
-    height: 1.4rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -314,6 +316,10 @@
   .show-btn:hover{
     color: #ffffff;
     transition: 1s;
+  }
+  .submit-btn{
+    height: 2.2rem;
+    font-size: .95rem;
   }
 }
 
