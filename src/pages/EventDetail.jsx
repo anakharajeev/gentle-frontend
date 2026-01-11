@@ -121,40 +121,28 @@ const handleDonationSubmit = async () => {
   const amountNumber = Number(amount);
   if (!amount || amountNumber <= 0) return showToast("Enter a valid amount");
 
-  const token = localStorage.getItem("access_token");
-  if (!token) return showToast("Login required to donate");
-
   try {
-    // Send donation request
+  
     await API.post(`events/${id}/donations/`, {
-      amount: Number(amount)
+      amount: amountNumber,
     });
 
     setPaymentModalOpen(false);
-
-    // Refresh event and donations
-    const [eventRes, donationRes] = await Promise.all([
-      API.get(`events/${id}/`),
-      API.get(`events/${id}/donations/`, { params: { page: 1, page_size: 100 } }),
-    ]);
-
-    setEvent({ ...eventRes.data, total_donations: Number(eventRes.data.total_donations || 0) });
-    setDonations(donationRes.data.results || []);
     setAmount("");
-    
+    setPreset(null);
+
     setSuccessModalOpen(true);
+
+    fetchEvent();
+    fetchDonations();
 
   } catch (err) {
     console.error(err);
-
-    if (err.response?.data?.detail) {
-      showToast(err.response.data.detail);
-    } else {
-      showToast("Donation failed");
-    }
+    showToast(
+      err.response?.data?.detail || "Donation failed"
+    );
   }
 };
-
 
 
   if (!event) return <p>Loading...</p>;
