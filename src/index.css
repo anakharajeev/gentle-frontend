@@ -310,12 +310,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #c6cfd8;
+    color: #70869d;
     cursor: pointer;
     transition: 1s;
   }
   .show-btn:hover{
-    color: #ffffff;
+    color: #08203d;
     transition: 1s;
   }
   .submit-btn{
